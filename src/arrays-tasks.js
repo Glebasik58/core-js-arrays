@@ -466,15 +466,11 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([]) => []
  */
 function getHexRGBValues(arr) {
-  return arr.map((num, index) => {
-    const validNum = Math.min(255, Math.max(0, num));
-    const hexValue = validNum.toString(16).padStart(2, '0');
-    const middleValue =
-      index === Math.floor(arr.length / 2) ? '0000FF' : hexValue;
-    return `#${middleValue}${middleValue}${middleValue}`
-      .slice(0, 7)
-      .toUpperCase(); 
-  });
+  const result = [];
+  arr.map((item) =>
+    result.push(`#${item.toString(16).toUpperCase().padStart(6, '0')}`)
+  );
+  return result;
 }
 
 /**
